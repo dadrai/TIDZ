@@ -1,0 +1,85 @@
+using System;
+					
+public class Program
+{
+	public static void viv(string[,] d){
+		for(int i=0;i<=7;i++){
+			for(int j=0;j<=7;j++){
+				Console.Write(d[i,j] + " ");
+			}
+			Console.WriteLine();
+		}
+		Console.WriteLine();
+	}
+	public static void fer(string[,] d, int a,int b){
+		for (int i =0; i<=7;i++){
+			if (d[i,b]!="F") d[i,b]="#";
+			if (d[a,i]!="F") d[a,i]="#";}
+		for (int i = 1; i<=7;i++){
+		if ((a+i<8)&&(b+i<8)&&(d[a+i,b+i]!="F")) d[a+i,b+i]="#";
+			if ((a+i<8)&&(b+i<8)) d[a+i,b+i]="#";
+			if ((a-i>=0)&&(b-i>=0)) d[a-i,b-i]="#";
+			if ((a+i<8)&&(b-i>=0)) d[a+i,b-i]="#";
+			if ((a-i>=0)&&(b+i<8)) d[a-i,b+i]="#";
+		
+		}
+		
+	}
+	public static string[,] otch(string[,] d) {
+		for(int i=0;i<=7;i++){
+			for(int j=0;j<=7;j++){
+				d[i,j]="*";
+			}
+		}
+		return d;
+	}
+	
+	public static bool prov(string[,] d) {
+		bool a =false;
+		for(int i=0;i<=7;i++){
+			for(int j=0;j<=7;j++){
+				if (d[i,j]=="*") a= true;
+			}
+		}
+	return a;
+	}
+	
+	public static void Main()
+	{
+		string[,] d = new string[,] {
+		{"*","*","*","*","*","*","*","*"},
+		{"*","*","*","*","*","*","*","*"},
+		{"*","*","*","*","*","*","*","*"},
+		{"*","*","*","*","*","*","*","*"},
+		{"*","*","*","*","*","*","*","*"},
+		{"*","*","*","*","*","*","*","*"},
+		{"*","*","*","*","*","*","*","*"},
+		{"*","*","*","*","*","*","*","*"},};
+		
+		Random rnd =new Random();
+		int ff=0;
+		
+		while (ff<6) {
+			/*for(int i=0;i<=7;i++){
+			for(int j=0;j<=7;j++){
+				viv(d);
+			if (prov(d)==false) otch(d);
+			if((d[i,j]=="F")||(d[i,j]=="#")) continue;
+			d[i,j]="F";
+			fer(d,i,j);
+			ff++;
+			}
+		}*/
+		int i = rnd.Next(0,7);
+		int j = rnd.Next(0,7);
+			if (prov(d)==false) otch(d);
+			if((d[i,j]=="F")||(d[i,j]=="#")) continue;
+			d[i,j]="F";
+			fer(d,i,j);
+			ff++;
+		}
+		
+		
+		viv(d);
+	}
+}
