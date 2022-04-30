@@ -1,0 +1,29 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string a ="abcdefghijklmnopqrstuvwxyz";
+		char t=' ';
+		string slovo = Console.ReadLine();
+		int sdvig = Convert.ToInt32(Console.ReadLine());
+		string shifr="";
+		for (int i =0; i< slovo.Length;i++) 
+		{
+			if (slovo[i] !=' ')
+			{
+				//char k = slovo[i];
+				int n=0;
+				for (int j=0; j<26;j++)
+				{
+					if (slovo[i] == a[j]) {n =j;}
+				}
+				
+				t = a[(n+sdvig) % 26];
+				shifr+=t;
+			} else shifr+=" ";
+		}
+		Console.WriteLine(shifr);
+	}
+}
