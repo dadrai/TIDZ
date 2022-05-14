@@ -1,0 +1,31 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		char[,] pole = new char [,] { 
+			{'#','#', '#','#','#','#','#'},
+			{'#','#', '#','n','#','#','#'},
+			{'#',' ', ' ',' ',' ',' ','#'},
+			{'#','#', ' ','#','#',' ','#'},
+			{'#',' ', ' ',' ',' ','k','#'},
+			{'#',' ', ' ','#',' ',' ','#'},
+			{'#','#', '#','#','#','#','#'}
+		};
+		
+		//pole[0,2] ='n';
+		int kx =4, ky=5 ,nx=1,ny=3;
+		
+		while(true){
+		    if (pole[nx+1,ny]!='#') {nx++; if((kx==nx)&&(ky==ny)) break;}
+			else {if (pole[nx-1,ny]!='#') {if((kx==nx)&&(ky==ny)) break;}}
+			
+			if (pole[nx,ny+1]!='#') {if((kx==nx)&&(ky==ny)) break;}
+			else{if (pole[nx,ny-1]!='#') {if((kx==nx)&&(ky==ny)) break;}}	
+		}
+		
+		if((kx==nx)&&(ky==ny)) Console.WriteLine("Pyt' est'");
+		else Console.WriteLine("Pyti net'");
+	}
+}
